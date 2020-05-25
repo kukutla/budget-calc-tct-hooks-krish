@@ -13,7 +13,7 @@ const ExpenseList = ({ expenses,handleClearExpenses,handleEdit,handleDelete }) =
       </ul>
 
       {expenses.length > 0 && (
-        <button className="btn" onClick={()=>handleClearExpenses}>
+        <button className="btn" onClick={handleClearExpenses}>
           clear expenses
           <MdDelete className="btn-icon" />
         </button>
