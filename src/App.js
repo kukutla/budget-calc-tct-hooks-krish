@@ -29,7 +29,6 @@ function App() {
   /***************  functionality ************************ */
 
   useEffect(() => {
-    console.log("useEffect called");
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
   //handle charge
@@ -44,7 +43,6 @@ function App() {
   };
   //handle alert
   const handleAlert = ({ type, text }) => {
-    console.log(type, text);
     setAlert({ show: true, type, text });
     setTimeout(() => {
       setAlert({ show: false });
@@ -55,8 +53,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (charge.length > 0 && amount > 0) {
-      console.log(id, charge, amount);
-      let singleExpense = "";
+     let singleExpense = "";
       if (edit) {
         //we can use fileter but to manage the previous order using map
         let tempExpenses = expenses.map((item) => {
@@ -84,7 +81,6 @@ function App() {
   };
 
   const handleClearExpenses = () => {
-    console.log("handleClearExpenses");
     setExpenses([]);
     handleAlert({ type: "danger", text: "all items deleted" });
   };
@@ -95,7 +91,6 @@ function App() {
     handleAlert({ type: "danger", text: "item deleted" });
   };
   const handleEdit = (id) => {
-    console.log("handleEdit", id);
     const expense = expenses.find((expense) => expense.id === id);
     setCharge(expense.charge);
     setAmount(expense.amount);
